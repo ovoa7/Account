@@ -1,8 +1,8 @@
 import java.util.Scanner;
 public class checkingAccount extends account {
-	private double credit_limit;
-	private double loan_interest;
-	private double interest;
+	private static double credit_limit;
+	private static double loan_interest;
+	private static double interest;
 	checkingAccount(double balance, double credit_limit,double loan_interest,double interest){
 		super(balance);
 		SetBalance(balance);
@@ -11,8 +11,8 @@ public class checkingAccount extends account {
 		this.interest=interest;
 		
 	}
-	@Override
-	public void subtract(double debit){
+	
+	public  void subtract(double debit){
 		if (getBalance()+credit_limit<debit){
 			System.out.print("exceed");
 		}else{
@@ -22,9 +22,13 @@ public class checkingAccount extends account {
 			}
 		}
 	}
-	public double nextMonth(double loan_interest,double interest){
+	public static double nextMonth(){
+		if(getBalance()>0){
+			return getBalance()*interest+getBalance();
+		}else{
+			return getBalance()*loan_interest+getBalance();
+		}
+	}	
 		
-		
-	}
-	
 }
+	

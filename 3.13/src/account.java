@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class account {
-	private double balance;
+	private static double balance;
 	public account(double balance){
 		this.balance=balance;
 	}
@@ -10,12 +10,16 @@ public class account {
 		balance=balance+credit;
 	}
 	public void subtract(double debit){
+		if (debit>getBalance()){
+			System.out.print("exceed");
+		}else{
 		balance=balance-debit;
+		}
 	}
-	public double getBalance(){
+	public static double getBalance(){
 		return balance;
 	}
-	protected void SetBalance(double balance){
+	protected  void SetBalance(double balance){
 		this.balance=balance;
 		
 	}
