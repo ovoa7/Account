@@ -16,7 +16,7 @@ public class checkingAccount extends account {
 		if (getBalance()+credit_limit<debit){
 			System.out.print("exceed");
 		}else{
-			SetBalance(getBalance()+credit_limit-debit);
+			SetBalance(getBalance()-debit);
 			if (getBalance()<0){
 				System.out.print("balance <0");
 			}
