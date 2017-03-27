@@ -1,19 +1,20 @@
 import java.util.Scanner;
 
-public class account {
+public abstract class Account {
 	private static double balance;
-	public account(double balance){
+	private static double time;
+	public Account(double balance){
 		this.balance=balance;
 	}
 	
 	public void add(double credit){
 		balance=balance+credit;
 	}
-	public void subtract(double debit){
-		if (debit>getBalance()){
+	public void debit(double amount){
+		if (amount>getBalance()){
 			System.out.print("exceed");
 		}else{
-		balance=balance-debit;
+		balance=balance-amount;
 		}
 	}
 	public static double getBalance(){
@@ -23,6 +24,8 @@ public class account {
 		this.balance=balance;
 		
 	}
+	public abstract double getWithrawableAccount();
+	public abstract double passTime(int time);
 }
 
 
