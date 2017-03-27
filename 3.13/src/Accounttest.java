@@ -6,6 +6,7 @@ public class Accounttest {
 		Account account2 = new SavingAccount(100,0.05);
 		
 		Scanner scan=new Scanner(System.in);
+		
 		double amount;
 		System.out.printf("Account1 balance: ",account1.getBalance(),"출금 가능액: ",account1.getWithdrawableAccount());
 		System.out.println("Enter withdrawal amount for Account1: ");

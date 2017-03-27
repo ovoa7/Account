@@ -7,6 +7,7 @@ public abstract class Account {
 		this.balance=balance;
 	}
 	
+	
 	public void add(double credit){
 		balance=balance+credit;
 	}
