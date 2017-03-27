@@ -23,7 +23,6 @@ public class account {
 		this.balance=balance;
 		
 	}
-
 }
 
 
