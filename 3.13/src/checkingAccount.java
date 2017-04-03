@@ -1,9 +1,9 @@
 import java.util.Scanner;
-public class checkingAccount extends account {
+public class checkingAccount extends Account {
 	private static double credit_limit;
 	private static double loan_interest;
 	private static double interest;
-	checkingAccount(double balance, double credit_limit,double loan_interest,double interest){
+	checkingAccount(double balance, double credit_limit,double interest,double loan_interest){
 		super(balance);
 		SetBalance(balance);
 		this.credit_limit=credit_limit;
@@ -28,7 +28,28 @@ public class checkingAccount extends account {
 		}else{
 			return getBalance()*loan_interest+getBalance();
 		}
+	}
+
+	@Override
+	public double EstimateValue(int month) {
+		
+		return getBalance() * (1+interest*month);
+		}
+
+	@Override
+	public double getWithrawableAccount() {
+		// TODO Auto-generated method stub
+		return balance;
+	}
+
+	@Override
+	public double passTime(int time) {
+		// TODO Auto-generated method stub
+		return 0;
 	}	
+	public String toString(){
+		return String.format("CheckingAccount_Balance: %f",this.getBalance());
+	}
 		
 }
 	

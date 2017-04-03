@@ -27,13 +27,21 @@ public class SavingAccount extends Account {
 	@Override
 	public double getWithrawableAccount(){
 		if (month>=12){
-			
-			return SetBalance(balance);
+			SetBalance(balance);
 		}
+		return 0;
 		
 		
 	}
-	
+	@Override
+	public double EstimateValue(int month) {
+		
+		
+		return getBalance()*Math.pow(1+interest,month);
+	}
+	public String toString(){
+		return String.format("SavingAccount_Balance: %f",this.getBalance());
+	}
 
 	
 

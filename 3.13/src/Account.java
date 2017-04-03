@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public abstract class Account {
-	private static double balance;
+public abstract class Account implements Valuable{
+	protected static double balance;
 	private static double time;
 	public Account(double balance){
 		this.balance=balance;
@@ -18,7 +18,7 @@ public abstract class Account {
 		balance=balance-amount;
 		}
 	}
-	public static double getBalance(){
+	public double getBalance(){
 		return balance;
 	}
 	protected  void SetBalance(double balance){
