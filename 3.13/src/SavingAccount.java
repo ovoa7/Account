@@ -1,6 +1,6 @@
 
 public class SavingAccount extends Account {
-	private static double interest;
+	private double interest;
 	private int month=0;
 	SavingAccount(double balance, double interest){
 		super(balance);
@@ -8,12 +8,12 @@ public class SavingAccount extends Account {
 		this.interest=interest;
 	}
 	@Override
-	public void debit(double amount){
-		if (month<11){
-			System.out.println("아직 출금할 수 없습니다.");
-		}else{
-			SetBalance(getBalance()-amount);
-		}
+	public void debit(double amount) throws Exception{
+		if (month<11)throw new Exception("아직 출금할 수 없습니다.");
+		if (amount<0) throw new Exception("음수입력!");
+		if (balance<amount) throw new Exception("한도초과!");
+		balance=balance-amount;
+			
 		
 	}
 	@Override

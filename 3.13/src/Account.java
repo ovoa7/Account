@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public abstract class Account implements Valuable{
-	protected static double balance;
-	private static double time;
+	protected double balance;
+	private double time;
 	public Account(double balance){
 		this.balance=balance;
 	}
@@ -11,12 +11,8 @@ public abstract class Account implements Valuable{
 	public void add(double credit){
 		balance=balance+credit;
 	}
-	public void debit(double amount){
-		if (amount>getBalance()){
-			System.out.print("exceed");
-		}else{
+	public void debit(double amount) throws Exception{
 		balance=balance-amount;
-		}
 	}
 	public double getBalance(){
 		return balance;
