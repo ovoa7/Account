@@ -11,6 +11,13 @@ public class CheckingAccount extends Account {
 		this.interest=interest;
 		
 	}
+	public boolean isBankrupted(){
+		if (getWithdrawableAccount()<0) return true;
+		else return false;
+		
+		
+	}
+	
 	
 	public  void subtract(double debit){
 		if (getBalance()+credit_limit<debit){
@@ -33,13 +40,18 @@ public class CheckingAccount extends Account {
 	@Override
 	public double EstimateValue(int month) {
 		
-		return getBalance() * (1+interest*month);
+		return getBalance() * Math.pow(1+interest,month);
 		}
+	@Override
+	public double EstimateValue() {
+		
+		return getBalance() * Math.pow(1+interest,1);
+		}
+	
 
 	@Override
-	public double getWithrawableAccount() {
-		// TODO Auto-generated method stub
-		return balance;
+	public double getWithdrawableAccount() {
+		return getBalance()+credit_limit;
 	}
 	@Override
 	public void debit(double amount) throws Exception{
@@ -49,10 +61,15 @@ public class CheckingAccount extends Account {
 			
 	}
 
+
 	@Override
-	public double passTime(int time) {
+	public void passTime(int time) {
+		
 		SetBalance(getBalance()*Math.pow(1+interest,time));
-		return getBalance();
+	}
+	@Override
+	public void passTime() {
+		SetBalance(getBalance()*Math.pow(1+interest,1));
 	}	
 	public String toString(){
 		return String.format("CheckingAccount_Balance: %f",this.getBalance());

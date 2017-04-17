@@ -11,6 +11,9 @@ public class Car implements Valuable{
 		
 		return	price*0.8*Math.pow(0.99, month);
 	}
+	public double EstimateValue(){
+		return	price*0.8*Math.pow(0.99, 1);
+	}
 	public String toString(){
 		return String.format("Human name: %s\ninitial price: %f",name,price);
 	}

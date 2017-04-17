@@ -8,7 +8,7 @@ public abstract class Account implements Valuable{
 	}
 	
 	
-	public void add(double credit){
+	public void credit(double credit){
 		balance=balance+credit;
 	}
 	public void debit(double amount) throws Exception{
@@ -21,8 +21,9 @@ public abstract class Account implements Valuable{
 		this.balance=balance;
 		
 	}
-	public abstract double getWithrawableAccount();
-	public abstract double passTime(int time);
+	public abstract double getWithdrawableAccount();
+	public abstract void passTime(int time);
+	public abstract void passTime();
 }
 
 

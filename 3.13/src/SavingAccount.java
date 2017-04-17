@@ -17,21 +17,28 @@ public class SavingAccount extends Account {
 		
 	}
 	@Override
-	public double passTime(int time){
+	public void passTime(int time){
 		month= month+time;
 		if (month>=12){
-			return getBalance()*Math.pow(1+interest,12);
+			SetBalance(getBalance()*Math.pow(1+interest,12));
 		}
-		return 0;
+		
+		
 	}
 	@Override
-	public double getWithrawableAccount(){
+	public void passTime(){
+		month+=1;
 		if (month>=12){
-			SetBalance(balance);
+			SetBalance(getBalance()*Math.pow(1+interest,12));
 		}
-		return 0;
 		
-		
+	}
+	@Override
+	public double getWithdrawableAccount(){
+		if (month>=12){
+			return getBalance();
+		}
+		else return 0;
 	}
 	@Override
 	public double EstimateValue(int month) {
@@ -41,6 +48,11 @@ public class SavingAccount extends Account {
 	}
 	public String toString(){
 		return String.format("SavingAccount_Balance: %f",this.getBalance());
+	}
+	@Override
+	public double EstimateValue() {
+		return getBalance()*Math.pow(1+interest,1);
+		
 	}
 
 	
